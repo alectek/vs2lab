@@ -26,13 +26,14 @@ class Server:
             "Alec": "0721-12345",
             "Artemis": "0721-67890",
             "Charlie": "0176-11223344",
-            "Jiuren": "0151-99887766",
+            "Dana": "0151-99887766",
             "An Tim": "0176-12345678"
         }
 
         #Socket anlegen
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # prevents errors due to "addresses in use"
+        #                                IPv4, TCP
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                             
+        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Freigabe der Adresse nach Beendigung des Servers
         self.sock.bind((const_cs.HOST, const_cs.PORT))
         self.sock.settimeout(3)  # time out in order not to block forever
         self._logger.info("Server bound to socket " + str(self.sock))
