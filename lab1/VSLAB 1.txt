@@ -1,0 +1,31 @@
+VSLAB 1
+
+cd lab1
+
+Server:
+Bash
+pipenv run ipython
+
+
+Python:
+import clientserver
+server = clientserver.Server()
+server.serve()
+
+
+
+Client:
+
+cd lab1
+
+Bash
+pipenv run ipython
+
+
+import clientserver
+client = clientserver.Client()
+
+Tests
+
+client.get("Alec")
+client.get_all()
